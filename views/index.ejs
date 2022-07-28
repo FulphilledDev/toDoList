@@ -28,29 +28,38 @@
     <!-- UL with class todoItems to place items into -->
     <ul class="todoItems">
         <!-- Loop through array of retrieved items on server (MongoDB)-->
+        <!-- Create a list item with call of item -->
+        <!-- If THIS item's property 'complete' === 'true', then... -->
+        <!-- Create a span with class of 'completed' and value of 'thing' property -->
+        <!-- Otherwise... -->
+        <!-- Do the same thing but don't include the class 'completed' -->
+        <!-- Close our conditional -->
+        <!-- Create a span with font awesome classes -->
+        <!-- Close the list item -->
         <% for(let i=0; i < items.length; i++) {%>
-            <!-- Create a list item with call of item -->
+            
             <li class="item">
-                <!-- If THIS item's property 'complete' === 'true', then... -->
+                
                 <% if(items[i].completed===true) {%>
-                    <!-- Create a span with class of 'completed' and value of 'thing' property -->
+                    
                     <span class='completed'>
                         <%= items[i].thing %>
                     </span>
-                    <!-- Otherwise... -->
+                    
                     <% }else{ %>
-                        <!-- Do the same thing but don't include the class 'completed' -->
+                        
                         <span>
                             <%= items[i].thing %>
                         </span>
-                        <!-- Close our conditional -->
+                        
                         <% } %>
-                            <!-- Create a span with font awesome classes -->
+                            
                             <span class='fa fa-trash'></span>
-                            <!-- Close the list item -->
+                            
             </li>
-            <!-- Close our loop-->
+            
             <% } %>
+                <!-- Close our loop-->
                 <!-- Close the list-->
     </ul>
 
