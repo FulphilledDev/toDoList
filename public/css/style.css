@@ -1,0 +1,10 @@
+/* Make h1 red */
+h1 {
+    color: red;
+}
+
+/* Make class "completed" gray with line through */
+.completed {
+    color: gray;
+    text-decoration: line-through;
+}

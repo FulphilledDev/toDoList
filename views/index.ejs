@@ -1,0 +1,80 @@
+<!-- Identify document as HTML for Browser-->
+<!DOCTYPE html>
+<!-- Classify Language: English -->
+<html lang="en">
+<!-- Create a head -->
+
+<head>
+    <!-- Select character set -->
+    <meta charset="UTF-8">
+    <!-- Select HTTP equivalent and content -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Make content as wide as viewport with normal scaling -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Assign title to Document (Visible ON tab of browser) -->
+    <title>Document</title>
+    <!-- Connect font awesome styles (Trash Can) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Connect your style head -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Close Head -->
+</head>
+
+<!-- Open Body -->
+
+<body>
+    <!-- Important Title -->
+    <h1>Todo List: </h1>
+    <!-- UL with class todoItems to place items into -->
+    <ul class="todoItems">
+        <!-- Loop through array of retrieved items on server (MongoDB)-->
+        <% for(let i=0; i < items.length; i++) {%>
+            <!-- Create a list item with call of item -->
+            <li class="item">
+                <!-- If THIS item's property 'complete' === 'true', then... -->
+                <% if(items[i].completed===true) {%>
+                    <!-- Create a span with class of 'completed' and value of 'thing' property -->
+                    <span class='completed'>
+                        <%= items[i].thing %>
+                    </span>
+                    <!-- Otherwise... -->
+                    <% }else{ %>
+                        <!-- Do the same thing but don't include the class 'completed' -->
+                        <span>
+                            <%= items[i].thing %>
+                        </span>
+                        <!-- Close our conditional -->
+                        <% } %>
+                            <!-- Create a span with font awesome classes -->
+                            <span class='fa fa-trash'></span>
+                            <!-- Close the list item -->
+            </li>
+            <!-- Close our loop-->
+            <% } %>
+                <!-- Close the list-->
+    </ul>
+
+    <!-- Create h2 using the 'left' property's value -->
+    <h2>Left to do: <%= left %>
+    </h2>
+
+    <!-- Create h2 for subtitle -->
+    <h2>Add A Todo:</h2>
+
+    <!-- Create a form with action referenced in server.js and applicable method of 'POST' -->
+    <form action="/addTodo" method="POST">
+        <!-- Create a field with type, placeholder, and name-->
+        <input type="text" placeholder="Thing To Do" name="todoItem">
+        <!-- Creat a submit field (NOT a button)-->
+        <input type="submit">
+        <!-- Close form -->
+    </form>
+
+    <!-- Run main js script-->
+    <script src='js/main.js'></script>
+    <!-- Close Body -->
+</body>
+
+<!-- Close Document -->
+
+</html>
