@@ -38,6 +38,7 @@
     <!-- Close our loop-->
     <!-- Close the list-->
     <ul class="todoItems">
+
         <% for(let i=0; i < items.length; i++) {%>
             <li class="item">
                 <% if(items[i].completed===true) {%>
@@ -59,6 +60,42 @@
             </li>
 
             <% } %>
+
+
+        <!-- Loop through array of retrieved items on server (MongoDB)-->
+        <!-- Create a list item with call of item -->
+        <!-- If THIS item's property 'complete' === 'true', then... -->
+        <!-- Create a span with class of 'completed' and value of 'thing' property -->
+        <!-- Otherwise... -->
+        <!-- Do the same thing but don't include the class 'completed' -->
+        <!-- Close our conditional -->
+        <!-- Create a span with font awesome classes -->
+        <!-- Close the list item -->
+        <% for(let i=0; i < items.length; i++) {%>
+            
+            <li class="item">
+                
+                <% if(items[i].completed===true) {%>
+                    
+                    <span class='completed'>
+                        <%= items[i].thing %>
+                    </span>
+                    
+                    <% }else{ %>
+                        
+                        <span>
+                            <%= items[i].thing %>
+                        </span>
+                        
+                        <% } %>
+                            
+                            <span class='fa fa-trash'></span>
+                            
+            </li>
+            
+            <% } %>
+                <!-- Close our loop-->
+                <!-- Close the list-->
 
     </ul>
 
