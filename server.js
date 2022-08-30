@@ -122,7 +122,7 @@ app.delete('/deleteItem', (request, response) => {
     // Grab the item from the 'todos' collection that has a thing value of what is clicked and delete from the database
     db.collection('todos').deleteOne({ thing: request.body.itemFromJS })
         // Then tell us the result...
-        .then(result => {
+        .then(response => {
             // When successful, console log string
             console.log('Todo Deleted')
             response.json('Todo Deleted')

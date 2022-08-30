@@ -27,6 +27,7 @@ Array.from(itemCompleted).forEach((element) => {
 async function deleteItem() {
     // Assign variable to select innerText of 'this' to do item 
     const itemText = this.parentNode.childNodes[1].innerText
+    console.log(itemText)
     // Attempt this...
     try {
         // Make a response variable that fetches deleteItem from server.js
@@ -46,7 +47,7 @@ async function deleteItem() {
         // Console log json data
         console.log(data)
         // And refresh the page
-        location.reload()
+        // location.reload()
         // If that doesnt work...
     } catch (err) {
         // Console log the issue
@@ -69,7 +70,7 @@ async function markComplete() {
             // Create body property of 'itemFromJS' with a value that is stringified itemText(in order to communicate with server)
             body: JSON.stringify({
                 // Match property with referred value in line above
-                itemFromJS: itemText
+                'itemFromJS': itemText
             })
         })
         // Upon receiving, assign variable a value of responded json
@@ -77,7 +78,7 @@ async function markComplete() {
         // Console log json data
         console.log(data)
         // And refresh the page
-        location.reload()
+        // location.reload()
         // If that doesnt work...
     } catch (err) {
         // Console log the issue
@@ -100,7 +101,7 @@ async function markUnComplete() {
             // Create body property of 'itemFromJS' with a value that is stringified itemText(in order to communicate with server)
             body: JSON.stringify({
                 // Match property with referred value in line above
-                itemFromJS: itemText
+                'itemFromJS': itemText
             })
         })
         // Upon receiving, assign variable a value of responded json
@@ -108,7 +109,7 @@ async function markUnComplete() {
         // Console log json data
         console.log(data)
         // And refresh the page
-        location.reload()
+        // location.reload()
         // If that doesnt work...
     } catch (err) {
         // Console log the issue
